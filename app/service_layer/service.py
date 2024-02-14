@@ -13,7 +13,7 @@ class FinanceService:
         return Vehicle_Finance.query.filter_by(id=id).first()
 
     @staticmethod
-    def add_vehicle_finance(id, additionalservice,addson,price):
+    def add_vehicle_finance(id,additionalservice,addson,price):
         new_vehicle = Vehicle_Finance(id=id, additionalservice=additionalservice,addson=addson,price=price)
         db.session.add(new_vehicle)
         db.session.commit()
