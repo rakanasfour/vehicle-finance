@@ -24,14 +24,16 @@ def get_vehicle_finance(id):
 def add_vehicle_finance():
     data = request.json
     id = data.get('id')
-    additionalservice = data.get('additionalservice')
-    addson = data.get('addson')
+    brand = data.get('brand')
+    model = data.get('model')
+    year = data.get('year')
+    addon = data.get('addon')
     price = data.get('price')
 
     if not id:
         return jsonify({'error': 'Name is required'}), 400
 
-    vehicle_finance = FinanceService.add_vehicle_finance(id, additionalservice, addson, price)
+    vehicle_finance = FinanceService.add_vehicle_finance(id, brand, model, year, addon, price)
     return jsonify(vehicle_finance), 201
 
 
@@ -40,14 +42,16 @@ def add_vehicle_finance():
 def update_vehicle_finance():
     data = request.json
     id = data.get('id')
-    additionalservice = data.get('additionalservice')
-    addson = data.get('addson')
+    brand = data.get('brand')
+    model = data.get('model')
+    year = data.get('year')
+    addon = data.get('addon')
     price = data.get('price')
 
     if not id:
         return jsonify({'error': 'Name is required'}), 400
 
-    vehicle_finance = FinanceService.update_vehicle_finance(id, additionalservice, addson, price)
+    vehicle_finance = FinanceService.update_vehicle_finance(id, brand, model, year, addon, price)
     return jsonify(vehicle_finance), 201
 
 
